@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('partials/head'); %>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('partials/header'); %>
+
+    <!-- Content -->
+    <div class="uk-section uk-section-default">
+      <div class="uk-container">
+        <div class="uk-margin-large">
+          <h2 class="uk-width-medium uk-h2">Company</h2>
+          <div class="uk-divider-small"></div>
+          <div class="uk-container uk-container-small">
+            <div class="uk-text-center">
+              <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: fade; autoplay: true">
+                <ul class="uk-slideshow-items">
+                  <li><img src="images/company1.jpg" alt="company introduce image 1" uk-cover></li>
+                  <li><img src="images/company2.jpg" alt="company introduce image 2" uk-cover></li>
+                  <li><img src="images/company3.jpg" alt="company introduce image 3" uk-cover></li>
+                </ul>
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+              </div>
+            </div>
+          </div>
+          <div class="uk-margin-medium">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum iure incidunt labore natus consequuntur sint quidem accusantium perferendis vitae, molestiae quam totam ipsam placeat nemo eius ut quia quibusdam officiis nesciunt dolor atque doloribus minima neque? Quos, fuga hic expedita excepturi quo doloremque illum facere, harum labore, ab necessitatibus perferendis nobis totam a magnam ipsa aspernatur omnis distinctio unde ducimus obcaecati! Ipsa eius cumque sapiente soluta fugit eveniet necessitatibus veniam ullam cum odit consectetur numquam provident sed nesciunt esse tempore aperiam vero, eum fuga facere alias harum quae culpa obcaecati. Dolor eum facilis quae neque aliquam at fuga sit doloremque!
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
