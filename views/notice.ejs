@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('partials/head'); %>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('partials/header'); %>
+
+    <!-- Content -->
+    <div class="uk-section uk-section-default">
+      <div class="uk-container">
+        <div class="uk-margin-large">
+          <h2 class="uk-width-medium uk-h2">Notice</h2>
+          <div class="uk-divider-small"></div>
+          <div class="uk-child-width-1-1">
+            <% for (let i = 0; i < 5; i++) { %>
+              <div class="ao-post">
+                <div class="ao-post-title"><a href=""><h4>Notice <%= i+1 %></h4></a></div>
+                <span class="uk-margin-small-right" uk-icon="user"></span>
+                <span class="ao-post-writer uk-margin-small-right">ST</span>
+                <span class="uk-margin-small-right" uk-icon="clock"></span>
+                <span class="ao-post-time">2018-10-10 16:18</span>
+              </div>
+            <% } %>
+          </div>
+          <ul class="uk-pagination uk-flex-center" uk-margin>
+            <li><a href="#"><span uk-pagination-previous></span></a></li>
+            <li><a href="#">1</a></li>
+            <li class="uk-disabled"><span>...</span></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li class="uk-active"><span>7</span></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#"><span uk-pagination-next></span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
