@@ -1,6 +1,6 @@
 <header>
-  <div class="uk-container">
-    <div class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+  <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    <nav class="uk-container uk-navbar-container uk-navbar-transparent" uk-navbar>
       <div class="uk-navbar-left">
         <a href="/" class="uk-navbar-item uk-logo">A One</a>
       </div>
@@ -19,12 +19,12 @@
               <ul class="uk-nav uk-navbar-dropdown-nav">
                 <li><a href="#">Cart</a></li>
                 <li class="uk-nav-divider"></li>
-                <li><a href="#">LogOut</a></li>
+                <li><a href="/auth/signin">Sign In</a></li>
               </ul>
             </div>
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   </div>
 </header>
