@@ -6,13 +6,28 @@ const logger = require('morgan');
 const sassMiddleware = require('node-sass-middleware');
 const compression = require('compression');
 const helmet = require('helmet');
+const session = require('express-session');
+const passport = require('passport');
 
 const indexRouter = require('./routes/index');
 const noticesRouter = require('./routes/notices');
-const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 
+const passportConfig = require('./lib/passport-config');
+
 const app = express();
+
+// session initialize
+app.use(session({
+  secret: 'need-to-change-this-key',  // Need to change for security
+  resave: false,
+  saveUninitialized: true
+}));
+
+// passport initialize
+app.use(passport.initialize());
+app.use(passport.session());
+passportConfig(passport);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,8 +49,8 @@ app.use(helmet());
 
 app.use('/', indexRouter);
 app.use('/notice', noticesRouter);
-app.use('/auth', authRouter);
 app.use('/user', usersRouter);
+require('./routes/auth')(app, passport);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

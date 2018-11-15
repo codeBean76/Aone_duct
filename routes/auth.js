@@ -1,10 +1,13 @@
-const express = require('express');
-const router = express.Router();
+const auth = (app, passport) => {
+  app.get('/signin', (req, res, next) => {
+    res.render('auth/signin', { title: 'Sign In - A One' });
+  });
+  
+  // authenticate using passport
+  app.post('/signin', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/signin'
+  }));
+};
 
-router.get('/signin', (req, res, next) => {
-  res.render('auth/signin', { title: 'Sign In - A One' });
-});
-
-// TODO: Need to add '/signin' post method.
-
-module.exports = router;
+module.exports = auth; 
