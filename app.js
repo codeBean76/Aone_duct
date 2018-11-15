@@ -8,8 +8,9 @@ const compression = require('compression');
 const helmet = require('helmet');
 
 const indexRouter = require('./routes/index');
-const noticeRouter = require('./routes/notice');
+const noticesRouter = require('./routes/notices');
 const authRouter = require('./routes/auth');
+const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -32,8 +33,9 @@ app.use(compression());
 app.use(helmet());
 
 app.use('/', indexRouter);
-app.use('/notice', noticeRouter);
+app.use('/notice', noticesRouter);
 app.use('/auth', authRouter);
+app.use('/user', usersRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

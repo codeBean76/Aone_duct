@@ -9,13 +9,13 @@
     <%- include('../partials/header'); %>
 
     <!-- Content -->
-    <!-- TODO: This page is scrollable, but it must not do. Need to fix. -->
+    <!-- TODO: This page is scrollabel, but it must not do. Need to fix. -->
     <div class="uk-height-1-1">
       <div class="uk-flex uk-flex-center uk-flex-middle uk-backgroud-muted uk-height-viewport">
         <div class="uk-width-medium uk-padding-small">
-          <form action="/auth/signin" method="post">
+          <form action="/user/new" method="post">
             <fieldset class="uk-fieldset">
-              <legend class="uk-legend">Sign In</legend>
+              <legend class="uk-legend">New User</legend>
 
               <!-- Username input -->
               <div class="uk-margin">
@@ -32,15 +32,20 @@
                   <input class="uk-input uk-form-large" required placeholder="Password" type="password">
                 </div>
               </div>
+
+              <!-- Password Verify-->
+              <div class="uk-margin">
+                <div class="uk-inline uk-width-1-1">
+                  <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: lock"></span>
+                  <input class="uk-input uk-form-large" required placeholder="Password again." type="password">
+                </div>
+              </div>
   
               <div class="uk-margin">
-                <button type="submit" class="uk-button uk-button-primary uk-button-large uk-width-1-1">Sign In</button>
+                <button type="submit" class="uk-button uk-button-primary uk-button-large uk-width-1-1">Request register.</button>
               </div>
             </fieldset>
           </form>
-          <div class="uk-text-center">
-            <a class="uk-text-small" href="/user/new">Register new Account</a>
-          </div>
         </div>
       </div>
       
