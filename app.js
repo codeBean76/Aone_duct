@@ -8,6 +8,8 @@ const compression = require('compression');
 const helmet = require('helmet');
 const session = require('express-session');
 const passport = require('passport');
+const mongoose = require('mongoose');
+const flash = require('connect-flash');
 
 const indexRouter = require('./routes/index');
 const noticesRouter = require('./routes/notices');
@@ -24,6 +26,9 @@ app.use(session({
   saveUninitialized: true
 }));
 
+// enable flash messages
+app.use(flash());
+
 // passport initialize
 app.use(passport.initialize());
 app.use(passport.session());
@@ -32,6 +37,11 @@ passportConfig(passport);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+// mongoose initialize
+mongoose.Promise = global.Promise;  // use ES6 Native Promise in mongoose
+mongoose.connect('mongodb://localhost/aonedb', { useNewUrlParser: true, useCreateIndex: true });
+mongoose.connection.on('error', console.error);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -46,6 +56,13 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(compression());
 app.use(helmet());
+
+// send current user info & flash message to ejs
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  res.locals.flashMessages = req.flash();
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/notice', noticesRouter);

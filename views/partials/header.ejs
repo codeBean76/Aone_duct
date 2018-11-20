@@ -19,7 +19,11 @@
               <ul class="uk-nav uk-navbar-dropdown-nav">
                 <li><a href="#">Cart</a></li>
                 <li class="uk-nav-divider"></li>
-                <li><a href="/auth/signin">Sign In</a></li>
+                <% if (!currentUser) {%>
+                  <li><a href="/signin">Sign In</a></li>
+                <%} else {%>
+                  <li><a href="/signout">Sign Out</a></li>
+                <%}%>
               </ul>
             </div>
           </li>
@@ -28,3 +32,10 @@
     </nav>
   </div>
 </header>
+
+<!-- TODO: flash messages are not displayed. Need to fix. -->
+<!-- <% if (flashMessages) %>
+  <div class="uk-alert-primary" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p><%= flashMessages %></p>
+  </div> -->
