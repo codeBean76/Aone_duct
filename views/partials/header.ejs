@@ -33,9 +33,16 @@
   </div>
 </header>
 
-<!-- TODO: flash messages are not displayed. Need to fix. -->
-<!-- <% if (flashMessages) %>
-  <div class="uk-alert-primary" uk-alert>
-    <a class="uk-alert-close" uk-close></a>
-    <p><%= flashMessages %></p>
-  </div> -->
+<% for (let msg in flashMessages) { %>
+  <% if (msg == 'success') { %>
+    <div class="uk-alert-primary" uk-alert>
+      <a class="uk-alert-close" uk-close></a>
+      <p><%= flashMessages[msg] %></p>
+    </div>
+  <% } else if (msg == 'error') { %>
+    <div class="uk-alert-danger" uk-alert>
+      <a class="uk-alert-close" uk-close></a>
+      <p><%= flashMessages[msg] %></p>
+    </div>
+  <% } %>
+<% } %>

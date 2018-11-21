@@ -7,6 +7,7 @@ const auth = (app, passport) => {
   app.post('/signin', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/signin',
+    successFlash: true,
     failureFlash: true
   }));
 
