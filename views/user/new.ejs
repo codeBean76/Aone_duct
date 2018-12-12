@@ -13,15 +13,23 @@
     <div class="uk-height-1-1">
       <div class="uk-flex uk-flex-center uk-flex-middle uk-backgroud-muted uk-height-viewport">
         <div class="uk-width-medium uk-padding-small">
-          <form action="/user/new" method="post">
+          <form action="/user" method="post">
             <fieldset class="uk-fieldset">
               <legend class="uk-legend">New User</legend>
 
               <!-- Username input -->
               <div class="uk-margin">
                 <div class="uk-inline uk-width-1-1">
-                  <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon:user"></span>
+                  <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon:mail"></span>
                   <input class="uk-input uk-form-large" required placeholder="Email" name="email" type="email">
+                </div>
+              </div>
+
+              <!-- Nickname input -->
+              <div class="uk-margin">
+                <div class="uk-inline uk-width-1-1">
+                  <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon:user"></span>
+                  <input class="uk-input uk-form-large" required placeholder="Nickname" name="nickname" type="text">
                 </div>
               </div>
 
@@ -37,7 +45,7 @@
               <div class="uk-margin">
                 <div class="uk-inline uk-width-1-1">
                   <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: lock"></span>
-                  <input class="uk-input uk-form-large" required placeholder="Password again." name="password-verify" type="password">
+                  <input class="uk-input uk-form-large" required placeholder="Password again." name="password_verify" type="password">
                 </div>
               </div>
   
