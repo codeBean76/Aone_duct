@@ -3,8 +3,8 @@ const router = express.Router();
 const User = require('../models/user');
 
 function validateForm(form, options) {
-  let email = form.email || "";
-  let nickname = form.nickname || "";
+  let email = form.email || '';
+  let nickname = form.nickname || '';
   email = email.trim();
   nickname = nickname.trim();
 
