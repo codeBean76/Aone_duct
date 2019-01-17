@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head'); %>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/header'); %>
+
+    <!-- Content -->
+    <div class="uk-section uk-section-default">
+      <div class="uk-container">
+        <div class="uk-margin-large">
+          <h2 class="uk-width-medium uk-h2">New Notice</h2>
+          <div class="uk-divider-small"></div>
+          <form action="/notice" method="post">
+            <fieldset class="uk-fieldset">
+              <div class="uk-margin">
+                <input name="title" type="text" class="uk-input" placeholder="Title">
+              </div>
+
+              <div class="uk-margin">
+                <textarea name="content" rows="10" class="uk-textarea" placeholder="Content.."></textarea>
+              </div>
+
+              <input class="uk-button uk-button-primary" type="submit" value="Submit">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
