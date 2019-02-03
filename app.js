@@ -12,8 +12,8 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 
 const indexRouter = require('./routes/index');
-const noticesRouter = require('./routes/notices');
 const usersRouter = require('./routes/users');
+const noticesRouter = require('./routes/notices');
 
 const passportConfig = require('./lib/passport-config');
 
@@ -37,6 +37,9 @@ passportConfig(passport);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+// enable ejs to use library
+app.locals.moment = require('moment');
 
 // mongoose initialize
 mongoose.Promise = global.Promise;  // use ES6 Native Promise in mongoose
@@ -65,8 +68,8 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
-app.use('/notice', noticesRouter);
 app.use('/user', usersRouter);
+app.use('/notice', noticesRouter);
 require('./routes/auth')(app, passport);
 
 // catch 404 and forward to error handler

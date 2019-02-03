@@ -17,17 +17,19 @@
           <div class="uk-child-width-1-1">
             <% if (notice.length === 0) { %>
               <div class="text-center">There is no notice yet.</div>
-            <% } else { %>
-            <!-- TODO: Just an example. Need to connect with database. -->
-              <% for (let i = 0; i < 5; i++) { %>
+            <% } else { %>              
+              <% for (let i = 0; i < notice.length; i++) { %>
                 <div class="ao-post">
-                  <div class="ao-post-title"><a href=""><h4>Notice <%= i+1 %></h4></a></div>
+                  <div class="ao-post-title"><a href=""><h4><%= notice[i].title %></h4></a></div>
                   <span class="uk-margin-small-right" uk-icon="user"></span>
-                  <span class="ao-post-writer uk-margin-small-right">ST</span>
+                  <span class="ao-post-writer uk-margin-small-right"><%= notice[i].author.nickname %></span>
                   <span class="uk-margin-small-right" uk-icon="clock"></span>
-                  <span class="ao-post-time">2018-10-10 16:18</span>
+                  <span class="ao-post-time"><%= moment(notice[i].created).format('YYYY-MM-DD h:m') %></span>
                 </div>
               <% } %>
+                
+                <!-- pagination -->
+                <!-- TODO: pagination not working. Need to fix. -->
                 <ul class="uk-pagination uk-flex-center" uk-margin>
                   <li><a href="#"><span uk-pagination-previous></span></a></li>
                   <li><a href="#">1</a></li>
@@ -41,7 +43,6 @@
             <% } %>
           </div>
 
-          <!-- New post button. (just for admin) -->
           <% if (currentUser && currentUser.admin) { %>
             <p uk-margin>
               <a class="uk-button uk-button-primary" href="notice/new">New Notice</a>

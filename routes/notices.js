@@ -19,7 +19,7 @@ router.get('/new', (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   let notice = new Notice({
-    author: req.user.id,
+    author: req.user._id,
     title: req.body.title,
     content: req.body.content
   });

@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate');
 const Schema = mongoose.Schema;
 
-let schema = new Schema({
+const schema = new Schema({
   author: { type: Schema.Types.ObjectId, ref: 'User' },
   title: { type: String, trim: true, required: true },
   content: { type: String, trim: true, required: true },
@@ -11,6 +12,7 @@ let schema = new Schema({
   toObject: { virtuals: true }
 });
 
-let Notice = mongoose.model('notices', schema);
+schema.plugin(mongoosePaginate);
+const Notice = mongoose.model('Notice', schema);
 
 module.exports = Notice;
