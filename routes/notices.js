@@ -4,7 +4,7 @@ const Notice = require('../models/notice');
 
 /* GET method */
 router.get('/', async (req, res, next) => {
-  const notices = await Notice.find();
+  const notices = await Notice.find().populate('author');
   res.render('notice/index', { title: 'Notice - A One', notice: notices });
 });
 
