@@ -20,7 +20,7 @@
             <% } else { %>              
               <% for (let i = 0; i < notice.length; i++) { %>
                 <div class="ao-post">
-                  <div class="ao-post-title"><a href=""><h4><%= notice[i].title %></h4></a></div>
+                  <div class="ao-post-title"><a href="<%=`notice/${notice[i]._id}`%>"><h4><%= notice[i].title %></h4></a></div>
                   <span class="uk-margin-small-right" uk-icon="user"></span>
                   <span class="ao-post-writer uk-margin-small-right"><%= notice[i].author.nickname %></span>
                   <span class="uk-margin-small-right" uk-icon="clock"></span>

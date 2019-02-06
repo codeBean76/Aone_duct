@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/header'); %>
+
+    <!-- Content -->
+    <div class="uk-section uk-section-default">
+      <div class="uk-container">
+        <div class="uk-margin-large">
+          <h2 class="uk-width-medium uk-h2"><%= notice.title %></h2>
+          <div class="uk-divider-small"></div>
+          <div class="uk-child-width-1-1">
+            <div><%= notice.content %></div>
+          </div>
+          <p uk-margin>
+            <a class="uk-button uk-button-default" href="javascript:history.back()">Go back</a>
+            <% if (currentUser && currentUser.admin) { %>
+              <a class="uk-button uk-button-primary" href="/notice/<%= notice.id %>/edit">Edit</a>
+              <a class="uk-button uk-button-danger" href="/notice/<%= notice.id %>?_method=delete">Delete</a>
+            <% } %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

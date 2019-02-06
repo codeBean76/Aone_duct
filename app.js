@@ -10,6 +10,7 @@ const session = require('express-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
+const methodOverride = require('method-override');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -59,6 +60,9 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(compression());
 app.use(helmet());
+
+// to change method with _method. enable put or delete method.
+app.use(methodOverride('_method', { methods: ['GET', 'POST'] }));
 
 // send current user info & flash message to ejs
 app.use((req, res, next) => {

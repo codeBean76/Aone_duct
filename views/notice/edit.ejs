@@ -12,19 +12,19 @@
     <div class="uk-section uk-section-default">
       <div class="uk-container">
         <div class="uk-margin-large">
-          <h2 class="uk-width-medium uk-h2">New Notice</h2>
+          <h2 class="uk-width-medium uk-h2">Edit Notice</h2>
           <div class="uk-divider-small"></div>
-          <form action="/notice" method="post">
+          <form action="/notice/<%= notice.id %>?_method=put" method="post">
             <fieldset class="uk-fieldset">
               <div class="uk-margin">
-                <input name="title" type="text" class="uk-input uk-form-large" placeholder="Title">
+                <input name="title" type="text" class="uk-input uk-form-large" placeholder="Title" value="<%= notice.title %>">
               </div>
 
               <div class="uk-margin">
-                <textarea name="content" rows="10" class="uk-textarea" placeholder="Content.."></textarea>
+                <textarea name="content" rows="10" class="uk-textarea" placeholder="Content.."><%= notice.content %></textarea>
               </div>
 
-              <input class="uk-button uk-button-primary" type="submit" value="Submit">
+              <input class="uk-button uk-button-primary" type="submit" value="Update">
             </fieldset>
           </form>
         </div>
