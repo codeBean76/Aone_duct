@@ -1,15 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Notice = require('../models/notice');
-
-function isAuthenticated(req, res, next) {
-  if (req.user && req.user.admin) {
-    next();
-  } else {
-    req.flash('error', 'You are not service administrator!');
-    res.redirect('/');
-  }
-}
+const isAuth = require('../lib/isAuth');
 
 /* GET method */
 router.get('/', async (req, res, next) => {
@@ -18,7 +10,7 @@ router.get('/', async (req, res, next) => {
 });
 
 // new notice posting page
-router.get('/new', isAuthenticated, (req, res, next) => {
+router.get('/new', isAuth, (req, res, next) => {
   res.render('notice/new', { title: 'New Notice - A One' });
 });
 
@@ -28,13 +20,13 @@ router.get('/:id', async (req, res, next) => {
   res.render('notice/show', { title: 'Notice - A One', notice: notice });
 });
 
-router.get('/:id/edit', isAuthenticated, async (req, res, next) => {
+router.get('/:id/edit', isAuth, async (req, res, next) => {
   const notice = await Notice.findById(req.params.id);
 
   res.render('notice/edit', { title: 'Notice Edit - A One', notice: notice });
 });
 
-router.put('/:id', isAuthenticated, async (req, res, next) => {
+router.put('/:id', isAuth, async (req, res, next) => {
   const notice = await Notice.findById(req.params.id);
 
   if (!notice) {
@@ -50,7 +42,7 @@ router.put('/:id', isAuthenticated, async (req, res, next) => {
   res.redirect('/notice');
 });
 
-router.delete('/:id', isAuthenticated, async (req, res, next) => {
+router.delete('/:id', isAuth, async (req, res, next) => {
   await Notice.findOneAndRemove({ _id: req.params.id });
   req.flash('success', 'Successfully deleted.');
   res.redirect('/notice');

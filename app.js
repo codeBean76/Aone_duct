@@ -14,6 +14,7 @@ const methodOverride = require('method-override');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const productsRouter = require('./routes/products');
 const noticesRouter = require('./routes/notices');
 
 const passportConfig = require('./lib/passport-config');
@@ -73,6 +74,7 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
+app.use('/product', productsRouter);
 app.use('/notice', noticesRouter);
 require('./routes/auth')(app, passport);
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head'); %>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('../partials/header'); %>
+
+    <!-- Content -->
+    <div class="uk-section uk-section-default">
+      <div class="uk-container">
+        <div class="uk-margin-large">
+          <h2 class="uk-width-medium uk-h2">New Product</h2>
+          <div class="uk-divider-small"></div>
+          <form action="/product" method="post">
+            <fieldset class="uk-fieldset">
+              <!-- Product name -->
+              <div class="uk-margin">
+                <input name="product_name" type="text" class="uk-input uk-form-large" placeholder="Product name">
+              </div>
+
+              <!-- Product image -->
+              <div class="uk-margin">
+                <input name="imageSrc" type="text" class="uk-input" placeholder="Product image (link)">
+              </div>
+
+              <!-- Product price -->
+              <div class="uk-margin">
+                <input name="price" type="number" class="uk-input" placeholder="Product price (integer)">
+              </div>
+
+              <!-- Product Stock -->
+              <div class="uk-margin">
+                <input name="stock" type="number" class="uk-input" placeholder="Product stock (how many left)">
+              </div>
+
+              <input class="uk-button uk-button-primary" type="submit" value="Submit">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
