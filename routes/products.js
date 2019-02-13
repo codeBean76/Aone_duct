@@ -14,11 +14,18 @@ router.get('/new', (req, res, next) => {
   res.render('product/new', { title: 'New Product - A One '});
 });
 
+router.get('/:id', async (req, res, next) => {
+  const product = await Product.findById(req.params.id);
+
+  res.render('product/show', { title: product.name + ' - A One', product: product });
+});
+
 router.post('/', async (req, res, next) => {
   const product = new Product({
     name: req.body.product_name,
-    image: req.body.imageSrc, // TODO: This is temperary measure. Need to fix.
+    thumbnail: req.body.thumbnail, // TODO: This is temperary measure. Need to fix.
     price: req.body.price,
+    description: req.body.description.split(' ').map(e => e.trim()),
     stock: req.body.stock
   });
   await product.save();

@@ -24,25 +24,27 @@
               <% for (let i = 0; i < product.length; i++) { %>
                 <div>
                   <div class="uk-card uk-card-default uk-card-small">
-                    <div class="uk-card-media-top">
-                      <img src="<%= product[i].image %>" alt="test picture">
-                    </div>
-                    <div class="uk-card-body">
-                      <h4 class="uk-h4 uk-margin-remove-bottom"><%= product[i].name %></h4>
-                      <%
-                      <!-- insert commas every three digits to price -->
-                        function commify(n) {
-                          var reg = /(^[+-]?\d+)(\d{3})/;
-                          n += '';
-
-                          while (reg.test(n))
-                            n = n.replace(reg, '$1' + ',' + '$2');
-
-                          return n;
-                        }
-                      %>
-                      <p class="uk-text-meta uk-margin-remove-top">₩<%= commify(product[i].price) %></p>
-                    </div>
+                    <a href="product/<%= product[i].id %>">
+                      <div class="uk-card-media-top">
+                        <img src="<%= product[i].thumbnail %>" alt="test picture">
+                      </div>
+                      <div class="uk-card-body">
+                        <h4 class="uk-h4 uk-margin-remove-bottom"><%= product[i].name %></h4>
+                        <%
+                        <!-- insert commas every three digits to price -->
+                          function commify(n) {
+                            var reg = /(^[+-]?\d+)(\d{3})/;
+                            n += '';
+  
+                            while (reg.test(n))
+                              n = n.replace(reg, '$1' + ',' + '$2');
+  
+                            return n;
+                          }
+                        %>
+                        <p class="uk-text-meta uk-margin-remove-top">₩<%= commify(product[i].price) %></p>
+                      </div>
+                    </a>
                   </div>
                 </div>
               <% } %>

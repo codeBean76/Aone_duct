@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema({
   name: { type: String, required: true },
-  image: { type: String, trim: true },
+  thumbnail: { type: String, trim: true },
   price: { type: Number },
+  description: [{ type: String, trim: true }],
   stock: { type: Number },
   sellStatus: { type: Boolean, default: true },
-  description: { type: String, trim: true },
   created: { type: Date, default: Date.now },
   updated: { type: Date, default: Date.now }
 }, {
