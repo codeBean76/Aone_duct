@@ -16,6 +16,17 @@ const auth = (app, passport) => {
     req.flash('success', 'Successfully signed out.');
     res.redirect('/');
   });
+  
+  app.get('/auth/facebook',
+    passport.authenticate('facebook', { scope: 'email' })
+  );
+
+  app.get('/auth/facebook/callback',
+    passport.authenticate('facebook', {
+      successRedirect: '/',
+      failureRedirect: '/signin'
+    })
+  );
 };
 
 module.exports = auth; 

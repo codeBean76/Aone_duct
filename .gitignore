@@ -62,3 +62,4 @@ typings/
 
 # Custom
 .DS_Store
+config/facebook.json

@@ -4,16 +4,16 @@ const User = require('../models/user');
 
 function validateForm(form, options) {
   let email = form.email || '';
-  let nickname = form.nickname || '';
+  let name = form.name || '';
   email = email.trim();
-  nickname = nickname.trim();
+  name = name.trim();
 
   if (!email) {
     return 'Email is required.';
   }
   
-  if (!nickname) {
-    return 'Nickname is required.';
+  if (!name) {
+    return 'Name is required.';
   }
 
   if (!form.password && options.needPassword) {
@@ -51,19 +51,18 @@ router.post('/', async (req, res, next) => {
 
   let user = await User.findOne({ email: req.body.email });
   if (user) {
-    req.flash('error', 'Email address already exists.');
-    return res.redirect('back');
-  }
-
-  let nickname = await User.findOne({ nickname: req.body.nickname });
-  if (nickname) {
-    req.flash('error', 'Nickname has already taken. Try another nickname.');
-    return res.redirect('back');
+    if (user.facebook.id) {
+      req.flash('error', 'You already logged in with facebook. Please use login with facebook.');
+      return res.redirect('back');
+    } else {
+      req.flash('error', 'Email address already exists.');
+      return res.redirect('back');
+    }
   }
 
   user = new User({
     email: req.body.email,
-    nickname: req.body.nickname,
+    name: req.body.name,
     password: req.body.password // TODO: Password not encrypted. Need to encrypt.
   });
   await user.save();

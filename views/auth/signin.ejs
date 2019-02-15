@@ -9,10 +9,18 @@
     <%- include('../partials/header'); %>
 
     <!-- Content -->
-    <!-- TODO: This page is scrollable, but it must not do. Need to fix. -->
     <div class="uk-height-1-1">
-      <div class="uk-flex uk-flex-center uk-flex-middle uk-backgroud-muted uk-height-viewport">
+      <div class="uk-flex uk-flex-center uk-flex-middle uk-backgroud-muted ao-viewport-height-85">
         <div class="uk-width-medium uk-padding-small">
+          <!-- Login with SNS Services -->
+          <legend class="uk-legend">Login with Social</legend>
+          <div class="uk-margin uk-text-center">
+            <!-- TODO: Button is not stylish. Need to make it like button. -->
+            <a href="auth/facebook">Login with Facebook</a>
+          </div>
+
+          <hr class="uk-divider-icon">
+
           <form action="/signin" method="post">
             <fieldset class="uk-fieldset">
               <legend class="uk-legend">Sign In</legend>

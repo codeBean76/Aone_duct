@@ -11,6 +11,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
+const MongoStore = require('connect-mongo')(session);
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -25,7 +26,13 @@ const app = express();
 app.use(session({
   secret: 'need-to-change-this-key',  // Need to change for security
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection
+  }),
+  cookie: {
+    maxAge: 86400000
+  }
 }));
 
 // enable flash messages
