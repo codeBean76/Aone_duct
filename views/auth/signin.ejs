@@ -9,49 +9,47 @@
     <%- include('../partials/header'); %>
 
     <!-- Content -->
-    <div class="uk-height-1-1">
-      <div class="uk-flex uk-flex-center uk-flex-middle uk-backgroud-muted ao-viewport-height-85">
-        <div class="uk-width-medium uk-padding-small">
-          <!-- Login with SNS Services -->
-          <legend class="uk-legend">Login with Social</legend>
-          <div class="uk-margin uk-text-center">
-            <!-- TODO: Button is not stylish. Need to make it like button. -->
-            <a href="auth/facebook">Login with Facebook</a>
-          </div>
+    <div class="uk-flex uk-flex-center uk-flex-middle uk-backgroud-muted" uk-height-viewport="expand: true">
+      <div class="uk-width-medium uk-padding-small">
+        <!-- Login with SNS Services -->
+        <legend class="uk-legend">Login with Social</legend>
+        <div class="uk-margin uk-text-center">
+          <!-- TODO: Button is not stylish. Need to make it like button. -->
+          <a href="auth/facebook">Login with Facebook</a>
+        </div>
 
-          <hr class="uk-divider-icon">
+        <hr class="uk-divider-icon">
 
-          <form action="/signin" method="post">
-            <fieldset class="uk-fieldset">
-              <legend class="uk-legend">Sign In</legend>
+        <form action="/signin" method="post">
+          <fieldset class="uk-fieldset">
+            <legend class="uk-legend">Sign In</legend>
 
-              <!-- Username input -->
-              <div class="uk-margin">
-                <div class="uk-inline uk-width-1-1">
-                  <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon:user"></span>
-                  <input class="uk-input uk-form-large" required placeholder="Email" name="email" type="email">
-                </div>
+            <!-- Username input -->
+            <div class="uk-margin">
+              <div class="uk-inline uk-width-1-1">
+                <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon:user"></span>
+                <input class="uk-input uk-form-large" required placeholder="Email" name="email" type="email">
               </div>
+            </div>
 
-              <!-- Password input -->
-              <div class="uk-margin">
-                <div class="uk-inline uk-width-1-1">
-                  <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: lock"></span>
-                  <input class="uk-input uk-form-large" required placeholder="Password" name="password" type="password">
-                </div>
+            <!-- Password input -->
+            <div class="uk-margin">
+              <div class="uk-inline uk-width-1-1">
+                <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: lock"></span>
+                <input class="uk-input uk-form-large" required placeholder="Password" name="password" type="password">
               </div>
-  
-              <div class="uk-margin">
-                <button type="submit" class="uk-button uk-button-primary uk-button-large uk-width-1-1">Sign In</button>
-              </div>
-            </fieldset>
-          </form>
-          <div class="uk-text-center">
-            <a class="uk-text-small" href="/user/new">Register new Account</a>
-          </div>
+            </div>
+
+            <div class="uk-margin">
+              <button type="submit" class="uk-button uk-button-primary uk-button-large uk-width-1-1">Sign In</button>
+            </div>
+          </fieldset>
+        </form>
+        <div class="uk-text-center">
+          <a class="uk-text-small" href="/user/new">Register new Account</a>
         </div>
       </div>
-      
+    </div>
     </div>
   </body>
 </html>

@@ -9,54 +9,51 @@
     <%- include('../partials/header'); %>
 
     <!-- Content -->
-    <!-- TODO: This page is scrollabel, but it must not do. Need to fix. -->
-    <div class="uk-height-1-1">
-      <div class="uk-flex uk-flex-center uk-flex-middle uk-backgroud-muted uk-height-viewport">
-        <div class="uk-width-medium uk-padding-small">
-          <form action="/user" method="post">
-            <fieldset class="uk-fieldset">
-              <legend class="uk-legend">New User</legend>
+    <div class="uk-flex uk-flex-center uk-flex-middle uk-backgroud-muted" uk-height-viewport="expand: true">
+      <div class="uk-width-medium uk-padding-small">
+        <form action="/user" method="post">
+          <fieldset class="uk-fieldset">
+            <legend class="uk-legend">New User</legend>
 
-              <!-- Username input -->
-              <div class="uk-margin">
-                <div class="uk-inline uk-width-1-1">
-                  <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon:mail"></span>
-                  <input class="uk-input uk-form-large" required placeholder="Email" name="email" type="email">
-                </div>
+            <!-- Username input -->
+            <div class="uk-margin">
+              <div class="uk-inline uk-width-1-1">
+                <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon:mail"></span>
+                <input class="uk-input uk-form-large" required placeholder="Email" name="email" type="email">
               </div>
+            </div>
 
-              <!-- Nickname input -->
-              <div class="uk-margin">
-                <div class="uk-inline uk-width-1-1">
-                  <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon:user"></span>
-                  <input class="uk-input uk-form-large" required placeholder="Name" name="name" type="text">
-                </div>
+            <!-- Nickname input -->
+            <div class="uk-margin">
+              <div class="uk-inline uk-width-1-1">
+                <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon:user"></span>
+                <input class="uk-input uk-form-large" required placeholder="Name" name="name" type="text">
               </div>
+            </div>
 
-              <!-- Password input -->
-              <div class="uk-margin">
-                <div class="uk-inline uk-width-1-1">
-                  <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: lock"></span>
-                  <input class="uk-input uk-form-large" required placeholder="Password" name="password" type="password">
-                </div>
+            <!-- Password input -->
+            <div class="uk-margin">
+              <div class="uk-inline uk-width-1-1">
+                <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: lock"></span>
+                <input class="uk-input uk-form-large" required placeholder="Password" name="password" type="password">
               </div>
+            </div>
 
-              <!-- Password Verify-->
-              <div class="uk-margin">
-                <div class="uk-inline uk-width-1-1">
-                  <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: lock"></span>
-                  <input class="uk-input uk-form-large" required placeholder="Password again." name="password_verify" type="password">
-                </div>
+            <!-- Password Verify-->
+            <div class="uk-margin">
+              <div class="uk-inline uk-width-1-1">
+                <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: lock"></span>
+                <input class="uk-input uk-form-large" required placeholder="Password again." name="password_verify" type="password">
               </div>
-  
-              <div class="uk-margin">
-                <button type="submit" class="uk-button uk-button-primary uk-button-large uk-width-1-1">Request register.</button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
+            </div>
+
+            <div class="uk-margin">
+              <button type="submit" class="uk-button uk-button-primary uk-button-large uk-width-1-1">Request register.</button>
+            </div>
+          </fieldset>
+        </form>
       </div>
-      
+    </div>   
     </div>
   </body>
 </html>
