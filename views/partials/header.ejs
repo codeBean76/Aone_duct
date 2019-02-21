@@ -19,10 +19,14 @@
               <ul class="uk-nav uk-navbar-dropdown-nav">
                 <li><a href="#">Cart</a></li>
                 <li class="uk-nav-divider"></li>
-                <% if (!currentUser) {%>
-                  <li><a href="/signin">Sign In</a></li>
-                <%} else {%>
+                <% if (currentUser) {%>
                   <li><a href="/signout">Sign Out</a></li>
+                  <% if (currentUser.admin) { %>
+                    <li class="uk-nav-divider"></li>
+                    <li><a href="/admin">Admin page</a></li>
+                  <% } %>
+                <%} else {%>
+                    <li><a href="/signin">Sign In</a></li>
                 <%}%>
               </ul>
             </div>

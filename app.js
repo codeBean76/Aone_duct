@@ -17,6 +17,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 const noticesRouter = require('./routes/notices');
+const adminRouter = require('./routes/admin');
 
 const passportConfig = require('./lib/passport-config');
 
@@ -83,6 +84,7 @@ app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/product', productsRouter);
 app.use('/notice', noticesRouter);
+app.use('/admin', adminRouter);
 require('./routes/auth')(app, passport);
 
 // catch 404 and forward to error handler
