@@ -1,0 +1,20 @@
+<%- include('./header') -%>
+<!-- Category making field -->
+<div class="uk-width-expand@l">
+  <form action="/admin/category" method="POST">
+    <fieldset class="uk-fieldset">
+      <!-- Category title -->
+      <div class="uk-margin">
+        <input name="category_title" type="text" class="uk-input" placeholder="Category title">
+      </div>
+
+      <!-- Parent category title -->
+      <div class="uk-margin">
+        <input name="category_parent" type="text" class="uk-input" placeholder="If there is parent category, enter the title.">
+      </div>
+
+      <input class="uk-button uk-button-primary" type="submit" value="Submit">
+    </fieldset>
+  </form>
+</div>
+<%- include('./footer'); -%>

@@ -1,0 +1,21 @@
+<%- include('./header') -%>
+<!-- Category making field -->
+<div class="uk-width-expand@l">
+  <form action="/admin/category/<%= category.id %>?_method=put" method="POST">
+    <fieldset class="uk-fieldset">
+      <!-- Category title -->
+      <div class="uk-margin">
+        <input name="category_title" type="text" class="uk-input" placeholder="Category title" value="<%= category.name %>">
+      </div>
+
+      <!-- Parent category title -->
+      <div class="uk-margin">
+        <input name="category_parent" type="text" class="uk-input" placeholder="If there is parent category, enter the title." value="<%= category.parent %>">
+      </div>
+
+      <input class="uk-button uk-button-default" type="submit" value="Edit">
+      <a href="/admin/category/<%= category.id %>?_method=delete" class="uk-button uk-button-danger">Delete</a>
+    </fieldset>
+  </form>
+</div>
+<%- include('./footer'); -%>

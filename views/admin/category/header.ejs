@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head'); %>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <%- include('../partials/frame'); %>
+    
+    <!-- Content -->
+    <div id="content" data-uk-height-viewport="offset-top: true; offset-bottom: true">
+      <div class="uk-container uk-container-expand">
+        <div class="uk-grid uk-grid-medium" data-uk-grid>
+
+          <!-- Panel -->
+          <div class="uk-width-1-1@l uk-first-column">
+            <div class="uk-card uk-card-default uk-card-small">
+              <div class="uk-card-header">
+                <div class="uk-grid uk-grid-small">
+                  <div class="uk-width-auto"><h4>Category manage</h4></div>
+                </div>
+              </div>
+              <div class="uk-card-body">
+                <div uk-grid>
+                  <!-- Category list -->
+                  <div class="uk-width-1-3@l">
+                    <div class="uk-panel uk-panel-scrollable" uk-height-viewport="offset-bottom: 30">
+                      <ul class="uk-list">
+                        <% if (categories.length === 0) { %>
+                          <p>There is no categories yet.</p>
+                        <% } else { %>
+                          <% for (let i = 0; i < categories.length; i++) { %>
+                            <% if (!categories[i].parent) { %>
+                                <li><label><a href="/admin/category/<%= categories[i].id %>"><%= categories[i].name %></a></label></li>
+                                <% for (let j = 0; j < categories.length; j++) { %>
+                                  <% if (categories[j].parent == categories[i].id) { %>
+                                    <ul>
+                                      <li><label><a href="/admin/category/<%= categories[j].id %>"><%= categories[j].name %></a></label></li>
+                                    </ul>
+                                  <% } %>
+                                <% } %>
+                            <% } %>
+                          <% } %>
+                        <% } %>
+                      </ul>
+                    </div>
+                  </div>
