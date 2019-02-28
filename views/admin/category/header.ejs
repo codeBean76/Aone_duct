@@ -12,8 +12,10 @@
       <div class="uk-container uk-container-expand">
         <div class="uk-grid uk-grid-medium" data-uk-grid>
 
+          
           <!-- Panel -->
           <div class="uk-width-1-1@l uk-first-column">
+            <%- include('../partials/flash'); %>
             <div class="uk-card uk-card-default uk-card-small">
               <div class="uk-card-header">
                 <div class="uk-grid uk-grid-small">
@@ -29,19 +31,32 @@
                         <% if (categories.length === 0) { %>
                           <p>There is no categories yet.</p>
                         <% } else { %>
-                          <% for (let i = 0; i < categories.length; i++) { %>
-                            <% if (!categories[i].parent) { %>
-                                <li><label><a href="/admin/category/<%= categories[i].id %>"><%= categories[i].name %></a></label></li>
-                                <% for (let j = 0; j < categories.length; j++) { %>
-                                  <% if (categories[j].parent == categories[i].id) { %>
-                                    <ul>
-                                      <li><label><a href="/admin/category/<%= categories[j].id %>"><%= categories[j].name %></a></label></li>
-                                    </ul>
-                                  <% } %>
-                                <% } %>
-                            <% } %>
-                          <% } %>
+                          <% print_parent(categories); %>
                         <% } %>
                       </ul>
                     </div>
                   </div>
+
+<%# category printing functions %>
+<% function print_parent(categories0) { %>
+  <% for (let i = 0; i < categories0.length; i++) { %>
+    <% if (!categories0[i].parent) { %>
+      <li><label><a href="/admin/category/<%= categories0[i].id %>"><%= categories0[i].name %></a></label></li>
+      <% print_children(categories0[i].children); %>
+    <% } %>
+  <% } %>
+<% } %>
+
+<% function print_children(categories1) { %>
+  <% if (categories1 == null) return; %>
+  <ul>
+    <% for (let i = 0; i < categories1.length; i++) { %>
+      <li><label><a href="/admin/category/<%= categories1[i].id %>"><%= categories1[i].name %></a></label></li>
+      <% for (let j = 0; j < categories.length; j++) { %>
+        <% if (categories[j].name == categories1[i].name) { %>
+          <% print_children(categories[j].children); %>
+        <% } %>
+      <% } %>
+    <% } %>
+  </ul>
+<% } %>

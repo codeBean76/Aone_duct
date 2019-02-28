@@ -10,7 +10,8 @@
 
       <!-- Parent category title -->
       <div class="uk-margin">
-        <input name="category_parent" type="text" class="uk-input" placeholder="If there is parent category, enter the title." value="<%= category.parent %>">
+        <% if (category.parent) { var parent_name = category.parent.name } %>
+        <input name="category_parent" type="text" class="uk-input" placeholder="If there is parent category, enter the title." value="<%= parent_name %>">
       </div>
 
       <input class="uk-button uk-button-default" type="submit" value="Edit">
